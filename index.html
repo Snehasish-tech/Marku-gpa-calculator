@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marku - Smart GPA Calculator</title>
+   
+</head>
+
+ <link rel="stylesheet" href="style.css">
+ <script src="script.js"></script>
+<body>
+    <!-- Animated Background Shapes -->
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="bg-shape shape3"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">Marku</h1>
+            
+            <p class="tagline">Smart GPA & Marks Calculator</p>
+            <p class="subtitle">Perfect for MAKAUT & Autonomous Colleges in West Bengal</p>
+        </header>
+
+        <!-- Mode Selector -->
+        <div class="mode-selector">
+            <button class="mode-btn active" onclick="switchMode('yearly')">📊 Yearly YGPA</button>
+            <button class="mode-btn" onclick="switchMode('semester')">📚 Semester SGPA</button>
+            <button class="mode-btn" onclick="switchMode('cgpa')">🎯 CGPA Calculator</button>
+            <button class="mode-btn" onclick="switchMode('target')">🎯 Target Calculator</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Yearly Mode -->
+            <div id="yearly-mode" class="card mode-content">
+                <h2 class="card-title">
+                    <div class="card-icon">📊</div>
+                    Yearly GPA Calculator
+                </h2>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Odd Sem SGPA</label>
+                        <input type="number" class="input-field" id="odd-sgpa" placeholder="Enter SGPA" step="0.01" min="0" max="10">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Even Sem SGPA</label>
+                        <input type="number" class="input-field" id="even-sgpa" placeholder="Enter SGPA" step="0.01" min="0" max="10">
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Odd Sem Credits</label>
+                        <input type="number" class="input-field" id="odd-credits" placeholder="Total credits" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Even Sem Credits</label>
+                        <input type="number" class="input-field" id="even-credits" placeholder="Total credits" min="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semester Mode -->
+            <div id="semester-mode" class="card mode-content" style="display: none;">
+                <h2 class="card-title">
+                    <div class="card-icon">📚</div>
+                    Semester GPA Calculator
+                </h2>
+                <div class="input-group">
+                    <label class="input-label">Number of Subjects</label>
+                    <input type="number" class="input-field" id="sem-subjects" placeholder="Enter number of subjects" min="1" max="10" onchange="generateSemesterInputs()">
+                </div>
+                <div id="semester-inputs" class="subject-inputs"></div>
+            </div>
+
+            <!-- Subject Mode - REMOVED -->
+
+            <!-- CGPA Mode -->
+            <div id="cgpa-mode" class="card mode-content" style="display: none;">
+                <h2 class="card-title">
+                    <div class="card-icon">🎯</div>
+                    CGPA Calculator
+                </h2>
+                <div class="input-group">
+                    <label class="input-label">Number of Semesters</label>
+                    <input type="number" class="input-field" id="num-semesters" placeholder="Enter number of semesters" min="1" max="8" onchange="generateCGPAInputs()">
+                </div>
+                <div id="cgpa-inputs" class="subject-inputs"></div>
+            </div>
+
+            <!-- Target Mode -->
+            <div id="target-mode" class="card mode-content" style="display: none;">
+                <h2 class="card-title">
+                    <div class="card-icon">🎯</div>
+                    Target GPA Calculator
+                </h2>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Current CGPA</label>
+                        <input type="number" class="input-field" id="current-cgpa" placeholder="Enter current CGPA" step="0.01" min="0" max="10">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Current Credits</label>
+                        <input type="number" class="input-field" id="current-credits" placeholder="Total credits earned" min="1">
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Target CGPA</label>
+                        <input type="number" class="input-field" id="target-cgpa" placeholder="Desired CGPA" step="0.01" min="0" max="10">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Next Sem Credits</label>
+                        <input type="number" class="input-field" id="next-credits" placeholder="Credits in next semester" min="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="calculate()">
+                Calculate
+            </button>
+            <button class="btn btn-danger" onclick="reset()">
+                Reset
+            </button>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 10px; color: var(--dark);">Calculating...</p>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results">
+            <h3 style="text-align: center; margin-bottom: 20px; color: var(--dark);">📊 Your Results</h3>
+            <div id="results-content"></div>
+        </div>
+    </div>
+<!-- ❌ Don't wrap footer with any background div -->
+<!-- ✅ Just write it simply like this: -->
+<footer class="footer">
+  <p>© 2025 Marku • Made with <span class="heart">❤</span> by Snehasish Dey</p>
+</footer>
+   
+</body>
+</html>
