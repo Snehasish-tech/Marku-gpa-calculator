@@ -16,7 +16,8 @@
 
 🖼️ Screenshots:
 
-![Marku Screenshot](./assets/Screenshot.png)
+![App Screenshot](<img width="1920" height="1080" alt="Screenshot png" src="https://github.com/user-attachments/assets/908702d7-1881-403e-84f8-bb2dc27686d2" />
+)
 
 
 🛠️ Built With
