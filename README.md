@@ -14,9 +14,6 @@
  🌐 Live Demo  
 🔗 [Visit Marku on Netlify](https://marku.netlify.app/)
 
-🖼️ Screenshots:
-
-![Marku Screenshot](./assets/Screenshot.png)
 
 
 🛠️ Built With
