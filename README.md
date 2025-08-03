@@ -16,7 +16,7 @@
 
 🖼️ Screenshots:
 
-![Marku UI](./assets/screenshot.png)
+![Marku Screenshot](./assets/Screenshot.png)
 
 
 🛠️ Built With
